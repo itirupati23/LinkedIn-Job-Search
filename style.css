@@ -1,0 +1,47 @@
+/* Custom styles can be added here */
+.active-tab {
+    border-color: #3b82f6; /* blue-500 */
+    color: #3b82f6;
+    background-color: #eff6ff; /* blue-50 */
+    font-weight: 600; /* semi-bold */
+}
+
+.tab-button {
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+/* General button transition for a smoother hover effect */
+button[type="submit"], #analyze-resume-btn, #get-insights-btn {
+    transition: background-color 0.2s ease-in-out;
+}
+
+/* Add a subtle animation to spinners */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+/* Ensure the prose styles for AI output are contained */
+#resume-output {
+    line-height: 1.6;
+}
+#resume-output h3 {
+    font-size: 1.25rem; /* text-xl */
+    font-weight: 600; /* font-semibold */
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid #e5e7eb; /* gray-200 */
+}
+#resume-output ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin-top: 0.5rem;
+}
+#resume-output li {
+    margin-bottom: 0.25rem;
+}
