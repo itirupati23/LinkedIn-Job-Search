@@ -24,6 +24,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Auto-detect and pre-fill location
+    async function prefillLocation() {
+        const locationInput = document.getElementById('location');
+        if (!locationInput) return;
+
+        try {
+            const response = await fetch('https://ipapi.co/json/');
+            // Don't throw an error, just fail silently if the API is down or blocked.
+            if (!response.ok) {
+                console.warn('Could not fetch location from ipapi.co');
+                return;
+            }
+            const data = await response.json();
+            if (data && data.city && data.country_name) {
+                locationInput.value = `${data.city}, ${data.country_name}`;
+            }
+        } catch (error) {
+            // Also fail silently on network errors, etc.
+            console.warn('Could not auto-detect location:', error);
+        }
+    }
+
+    // Call the function to pre-fill location on page load
+    prefillLocation();
+
     // Job Search Form Logic
     const jobSearchForm = document.getElementById('job-search-form');
     if (jobSearchForm) {
